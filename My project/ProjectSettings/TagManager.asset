@@ -7,6 +7,12 @@ TagManager:
   - MoneyTag
   - PlayerNameText
   - Timer
+  - CheckButton
+  - BetButton
+  - FoldButton
+  - CallButton
+  - PlayerText
+  - Status
   layers:
   - Default
   - TransparentFX

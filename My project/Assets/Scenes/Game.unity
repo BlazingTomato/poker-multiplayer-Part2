@@ -650,8 +650,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: OnPotButton
         m_Mode: 1
         m_Arguments:
@@ -783,8 +783,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: OnStartGameButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -999,8 +999,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: plus10Button
         m_Mode: 1
         m_Arguments:
@@ -1661,8 +1661,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: minus10Button
         m_Mode: 1
         m_Arguments:
@@ -1920,8 +1920,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: OnCallButton
         m_Mode: 1
         m_Arguments:
@@ -2539,8 +2539,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: OnBetButton
         m_Mode: 1
         m_Arguments:
@@ -2779,6 +2779,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1489360360}
   - component: {fileID: 1489360361}
+  - component: {fileID: 1489360362}
+  - component: {fileID: 1489360365}
+  - component: {fileID: 1489360364}
+  - component: {fileID: 1489360363}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -2813,7 +2817,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PokerPlayers: []
-  PokerPlayerTexts: []
   timeBetweenTurns: 10
   playerCount: 0
   gameStarted: 0
@@ -2821,14 +2824,24 @@ MonoBehaviour:
   EveryoneHasPlayed: 0
   currentBet: 0
   totalBet: 0
-  pot: 0
-  potTxt: {fileID: 347679178}
   round: 0
-  CheckBTN: {fileID: 2071829253}
-  FoldBTN: {fileID: 1723606132}
-  CallBTN: {fileID: 1002088881}
-  BetBTN: {fileID: 1300137960}
-  StartGameBTN: {fileID: 570006638}
+  dealer: {fileID: 1489360362}
+  calculateWinner: {fileID: 1489360363}
+  uICOntroller: {fileID: 1489360365}
+--- !u!114 &1489360362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489360359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecf4658788d763468f0dbdb50946a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1489360361}
+  uIController: {fileID: 1489360365}
   fullDeck:
   - {fileID: 21300000, guid: a1d2e2492c52a05428374f76f742f114, type: 3}
   - {fileID: 21300000, guid: 50cf12d584575b145acf133f0326d984, type: 3}
@@ -2889,10 +2902,69 @@ MonoBehaviour:
   - {fileID: 1524226432}
   - {fileID: 1998850772}
   - {fileID: 1559921103}
+--- !u!114 &1489360363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489360359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe6904dd133f5a45bbb0256ada6bc8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dealer: {fileID: 1489360362}
+  gameController: {fileID: 1489360361}
+  uIController: {fileID: 1489360365}
+  valuesTo13: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  suitesTo13: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  suites: 0000000000000000000000000000000000000000
+  HighestHandValue: 0
+--- !u!114 &1489360364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489360359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce084a5c9d2b4c243b4242852107238a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1489360361}
+  dealer: {fileID: 1489360362}
+  calculateWinner: {fileID: 1489360363}
+  uIController: {fileID: 1489360365}
+--- !u!114 &1489360365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489360359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9742d31f35f78c448ab8b4a14b020832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 1489360361}
+  Dealer: {fileID: 1489360362}
+  calculateWinner: {fileID: 1489360363}
+  eventController: {fileID: 1489360364}
+  PokerPlayerTexts: []
+  StatusTexts: []
+  pot: 0
+  potTxt: {fileID: 347679178}
+  CheckBTN: {fileID: 2071829253}
+  FoldBTN: {fileID: 1723606132}
+  CallBTN: {fileID: 1002088881}
+  BetBTN: {fileID: 1300137960}
+  StartGameBTN: {fileID: 570006638}
   playerCards:
   - {fileID: 422926622}
   - {fileID: 1267203200}
-  count: 0
   betAmount: 0
   betAmountTXT: {fileID: 1996363965}
   BetBox: {fileID: 711707511}
@@ -3187,8 +3259,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: OnHalfPotButton
         m_Mode: 1
         m_Arguments:
@@ -3320,8 +3392,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: OnFoldButton
         m_Mode: 1
         m_Arguments:
@@ -3959,8 +4031,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489360361}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+      - m_Target: {fileID: 1489360365}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: OnCheckButton
         m_Mode: 1
         m_Arguments:
